@@ -7,8 +7,8 @@ navbar:
       href: about.html
     - text: "Resume"
       href: resume.html
-    - text: "Plotly"
-      href: plotly.html
+    - text: "Dashboard"
+      href: Dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:cc4347@cumc.columbia.com
     - icon: fa-github fa-lg
