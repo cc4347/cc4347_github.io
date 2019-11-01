@@ -13,6 +13,7 @@ output:
 
 [About Me](about.html)
 
+[Data](Data.html)
 
 # Education
 
