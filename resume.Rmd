@@ -1,0 +1,24 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Education
+
+University of Michigan, April 2018
+  B.S. Ecology, Evolution and Biodiversity; Environmental Science
+Columbia University Mailman School of Public Health, May 2020
+  MPH Infectious Disease Epidemiology
+
+# Research
+
+Lab website page [Ticks in NYC](https://ecoepidemiologylab.e3b.columbia.edu/people/cassandra-coulter)
+
+# Professional Experience
+
+You can learn about me [here](about.html)
+
