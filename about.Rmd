@@ -1,0 +1,21 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+
+
+# Professional pages
+
+Here's my [LinkedIn](https://www.linkedin.com/in/cassandra-coulter-225243a2/)
+
+# Research
+
+Lab website page [Ticks in NYC](https://ecoepidemiologylab.e3b.columbia.edu/people/cassandra-coulter)
+
+# Add image
+![](Horse.JPEG)
