@@ -8,7 +8,9 @@ output:
 
 ![](Images/Caprice's Big Nose.JPEG)
 
-Read up on my professional and research experience in my [resume](resume.html), learn more [about](about.html) me before I became a public health student in NYC.
+
+Welcome to my website!
+Read up on my professional and research experience in my [resume](resume.html) and learn more [about](about.html) me before I became a public health student in NYC.
 
 # Professional Networking
 
