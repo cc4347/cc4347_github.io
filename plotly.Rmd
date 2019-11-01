@@ -2,11 +2,12 @@
 title: "Plotly"
 output: 
   html_document:
+    code_folding: hide
     toc: true
     toc_float: true
 ---
 
-```{r}
+```{r, message = FALSE}
 library(dplyr)
 library(tidyverse)
 library(plotly)
@@ -14,11 +15,11 @@ library(viridis)
 library(p8105.datasets)
 ```
 
-```{r}
+```{r, message = FALSE}
 data("ny_noaa")
 ```
 
-```{r}
+```{r, message = FALSE}
 ny_noaa$tmax <- as.numeric(ny_noaa$tmax)
 ny_noaa$tmin <- as.numeric(ny_noaa$tmin)
 ny_noaa$prcp <- as.numeric(ny_noaa$prcp)
@@ -57,6 +58,7 @@ inner_join(ny_noaa, common_ID) %>%
 
 ny_noaa %>%
   count(ID) %>%
+  mutate(ID = fct_reorder(ID, n)) %>%
   plot_ly(x = ~ID, y = ~n, type = "bar")
 ```
 
