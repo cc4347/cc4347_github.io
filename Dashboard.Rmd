@@ -1,0 +1,99 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(dplyr)
+library(tidyverse)
+library(plotly)
+library(viridis)
+library(p8105.datasets)
+```
+
+```{r}
+data("ny_noaa")
+
+ny_noaa$tmax <- as.numeric(ny_noaa$tmax)
+ny_noaa$tmin <- as.numeric(ny_noaa$tmin)
+ny_noaa$prcp <- as.numeric(ny_noaa$prcp)
+ny_noaa$date <- as.character(ny_noaa$date)
+
+ny_noaa$tmax <- ny_noaa$tmax / 10
+ny_noaa$tmin <- ny_noaa$tmin / 10
+ny_noaa$prcp <- ny_noaa$prcp / 10
+
+
+set.seed(1)
+ny_noaa =
+  ny_noaa %>%
+  select(ID = id, date, Precipitation = prcp, Snow = snow, SnowDepth = snwd, tmax, tmin) %>%
+  filter(
+    !is.na(Precipitation),
+    !is.na(Snow),
+    !is.na(SnowDepth),
+    !is.na(tmax),
+    !is.na(tmin)) %>%
+  sample_n(1000)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+ny_noaa %>%
+  count(ID) %>%
+  mutate(ID = fct_reorder(ID, n)) %>%
+  plot_ly(x = ~ID, y = ~n, color = ~ID, type = "bar")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+common_ID =
+  ny_noaa %>%
+  count(ID, sort = TRUE) %>%
+  top_n(8) %>%
+  select(ID)
+  
+inner_join(ny_noaa, common_ID) %>%
+  mutate(ID = fct_reorder(ID, tmax)) %>%
+  plot_ly(y = ~tmax, color = ~ID, type = "box")
+```
+
+### Chart C
+
+```{r}
+common_ID =
+  ny_noaa %>%
+  count(ID, sort = TRUE) %>%
+  top_n(8) %>%
+  select(ID)
+
+inner_join(ny_noaa, common_ID) %>%
+  mutate(ID = fct_reorder(ID, tmin)) %>%
+  plot_ly(y = ~tmin, color = ~ID, type = "box")
+```
+
+-----------------------------------------------------------------------
+
+### Chart D
+
+```{r}
+ny_noaa %>%
+  mutate(text_label = str_c("ID: ", ID, '\nPrecipitation: ', Precipitation)) %>%
+  filter(ID == c("USW00014771", "USW00004725", "USC00303346", "USC00308962", "USC00303025", "USC00305426", "USC00305113", "USC00302036")) %>%
+  plot_ly(
+    x = ~date, y = ~Precipitation, type = "scatter", mode = "markers",
+    color = ~ID, text = ~text_label, alpha = 0.5)
+```
+
