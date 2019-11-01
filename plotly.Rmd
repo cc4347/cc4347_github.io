@@ -6,11 +6,5 @@ output:
     toc_float: true
 ---
 
-# Navigation
 
-[Main Page](index.html)
-
-[Resume](resume.html)
-
-[Data](Data.html)
 

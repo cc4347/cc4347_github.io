@@ -6,14 +6,6 @@ output:
     toc_float: true
 ---
 
-# Navigation
-
-[Main Page](index.html)
-
-[About Me](about.html)
-
-[Data](Data.html)
-
 # Education
 
 ## University of Michigan

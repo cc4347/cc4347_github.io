@@ -6,14 +6,6 @@ output:
     toc_float: true
 ---
 
-# Navigation
-
-[Main Page](index.html)
-
-[Resume](resume.html)
-
-[Data](Data.html)
-
 # HoMe
 
 I'm a troll. I can show you where I grew up using just a hand. I know how to survive in subzero temperature winters and I'll start wearing T-shirts when it hits 50 degrees. Downpour or whiteout, I can handle the roads. I'll let you know when I see a cow. My family lives "Go Blue!". And I can't help but still say 'ope!' whenever I bump into someone. Even though I know longer live there, I am a Michigander through and through.
