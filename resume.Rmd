@@ -22,13 +22,13 @@ Columbia University Mailman School of Public Health, May 2020
 Lyme Disease in an Emerging Urban Area and an Endemic Area in Northeast United States
   Administered qualitative surveys to homewoners on Staten Island, NYC, a growing urban area and comparing their knowledge, attitudes, and prevention practices towards ticks and Lyme disease to residents from Block Island, RI, an endemic and substantially less urban area. Find [me](https://ecoepidemiologylab.e3b.columbia.edu/people/cassandra-coulter) in the Diuk-Wasser lab at Columbia.
 
-![Looking for Ticks in the Field](Ticks.JPEG)
+![Looking for Ticks in the Field](Images/Ticks.JPEG)
 
 ## University of Michigan
 Malarial Infection in *Podarcis erhardii* lizards
   Evaluate host response to malarial infection through video analysis of physical ability and assessing immune reponse with stained blood smears.
 
-![Malarial Infection](Malaria.JPEG)
+![Malarial Infection](Images/Malaria.JPEG)
 
 Biodiversity, Parasite Transmission, and Effects on Host Fitness in Coral Reef Fishes
   Dissected fish from remote archipelago to assess parasite diversity and burden using microscopes; furthermore, based on existing literature, developed a statistical model to assess how infection load impacted host fitness. Presented results at the National Conference for Undergraduate Research in 2015 and 2016.
