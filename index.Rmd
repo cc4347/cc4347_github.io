@@ -7,12 +7,12 @@ output:
     theme: cerulean
 ---
 
+# Navigating
+Read up on my professional and research experience in my [resume](resume.html). Learn more [about](about.html) me before I became a public health student in NYC.
 
-Learn [about](about.html) me and my journey up until this point as a public health student in NYC
+# Professional Networking
 
-Read up on my professional and research experience in my [resume](resume.html)
+Connect with me on [Linkedin](https://www.linkedin.com/in/cassandra-coulter-225243a2/).
 
-Connect with me on [Linkedin](https://www.linkedin.com/in/cassandra-coulter-225243a2/)
-
-Check out the [Eco-Epidemiology lab](https://ecoepidemiologylab.e3b.columbia.edu) I work with at Columbia University in New York City
+Check out the [Eco-Epidemiology lab](https://ecoepidemiologylab.e3b.columbia.edu) I work with at Columbia University in the City of New York.
 
