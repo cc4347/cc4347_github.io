@@ -47,19 +47,6 @@ ny_noaa %>%
   mutate(ID = fct_reorder(ID, n)) %>%
   plot_ly(x = ~ID, y = ~n, color = ~ID, type = "bar")
 
-ny_noaa %>%
-  mutate(text_label = str_c("ID: ", ID, '\nPrecipitation: ', Precipitation)) %>%
-  plot_ly(
-    x = ~date, y = ~Precipitation, type = "scatter", mode = "markers",
-    color = ~Precipitation, text = ~text_label, alpha = 0.5)
-
-ny_noaa %>%
-  mutate(text_label = str_c("ID: ", ID, '\nSnow: ', Snow)) %>%
-  plot_ly(
-    x = ~date, y = ~Snow, type = "scatter", mode = "markers",
-    color = ~Snow, text = ~text_label, alpha = 0.5)
-
-
 common_ID =
   ny_noaa %>%
   count(ID, sort = TRUE) %>%
@@ -74,5 +61,11 @@ inner_join(ny_noaa, common_ID) %>%
   mutate(ID = fct_reorder(ID, tmin)) %>%
   plot_ly(y = ~tmin, color = ~ID, type = "box")
 
+ny_noaa %>%
+  mutate(text_label = str_c("ID: ", ID, '\nPrecipitation: ', Precipitation)) %>%
+  filter(ID == c("USW00014771", "USW00004725", "USC00303346", "USC00308962", "USC00303025", "USC00305426", "USC00305113", "USC00302036")) %>%
+  plot_ly(
+    x = ~date, y = ~Precipitation, type = "scatter", mode = "markers",
+    color = ~ID, text = ~text_label, alpha = 0.5)
 ```
 
