@@ -1,0 +1,20 @@
+---
+title: "My awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# This is Jeff's awesome website
+
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+# Adding Links
+
+Here's my [LinkedIn](https://www.linkedin.com/in/cassandra-coulter-225243a2/)
+Lab website page [Ticks in NYC](https://ecoepidemiologylab.e3b.columbia.edu/people/cassandra-coulter)
+
+# Add image
+![](Horse.JPEG)
