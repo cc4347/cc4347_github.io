@@ -6,5 +6,57 @@ output:
     toc_float: true
 ---
 
+```{r}
+library(dplyr)
+library(tidyverse)
+library(plotly)
+library(viridis)
+library(p8105.datasets)
+```
 
+```{r}
+data("ny_noaa")
+```
+
+```{r}
+ny_noaa$tmax <- as.numeric(ny_noaa$tmax)
+ny_noaa$tmin <- as.numeric(ny_noaa$tmin)
+ny_noaa$prcp <- as.numeric(ny_noaa$prcp)
+
+set.seed(1)
+ny_noaa =
+  ny_noaa %>%
+  select(ID = id, Date = date, Precipitation = prcp, Snow = snow, SnowDepth = snwd, tmax, tmin) %>%
+  filter(
+    !is.na(Precipitation),
+    !is.na(Snow),
+    !is.na(SnowDepth),
+    !is.na(tmax),
+    !is.na(tmin)) %>%
+  sample_n(1000)
+
+ny_noaa %>%
+  mutate(text_label = str_c("Date: ", Date, '\nPrecipitation: ', Precipitation)) %>%
+  plot_ly(
+    x = ~ID, y = ~Precipitation, type = "scatter", mode = "markers",
+    color = ~Precipitation, text = ~text_label, alpha = 0.5)
+
+common_ID =
+  ny_noaa %>%
+  count(ID, sort = TRUE) %>%
+  top_n(8) %>%
+  select(ID)
+
+inner_join(ny_noaa, common_ID) %>%
+  mutate(ID = fct_reorder(ID, tmax)) %>%
+  plot_ly(y = ~tmax, color = ~ID, type = "box")
+
+inner_join(ny_noaa, common_ID) %>%
+  mutate(ID = fct_reorder(ID, tmin)) %>%
+  plot_ly(y = ~tmin, color = ~ID, type = "box")
+
+ny_noaa %>%
+  count(ID) %>%
+  plot_ly(x = ~ID, y = ~n, type = "bar")
+```
 
