@@ -23,11 +23,17 @@ data("ny_noaa")
 ny_noaa$tmax <- as.numeric(ny_noaa$tmax)
 ny_noaa$tmin <- as.numeric(ny_noaa$tmin)
 ny_noaa$prcp <- as.numeric(ny_noaa$prcp)
+ny_noaa$date <- as.character(ny_noaa$date)
+
+ny_noaa$tmax <- ny_noaa$tmax / 10
+ny_noaa$tmin <- ny_noaa$tmin / 10
+ny_noaa$prcp <- ny_noaa$prcp / 10
+
 
 set.seed(1)
 ny_noaa =
   ny_noaa %>%
-  select(ID = id, Date = date, Precipitation = prcp, Snow = snow, SnowDepth = snwd, tmax, tmin) %>%
+  select(ID = id, date, Precipitation = prcp, Snow = snow, SnowDepth = snwd, tmax, tmin) %>%
   filter(
     !is.na(Precipitation),
     !is.na(Snow),
@@ -37,17 +43,28 @@ ny_noaa =
   sample_n(1000)
 
 ny_noaa %>%
-  mutate(text_label = str_c("Date: ", Date, '\nPrecipitation: ', Precipitation)) %>%
+  mutate(text_label = str_c("ID: ", ID, '\nPrecipitation: ', Precipitation)) %>%
   plot_ly(
-    x = ~ID, y = ~Precipitation, type = "scatter", mode = "markers",
+    x = ~date, y = ~Precipitation, type = "scatter", mode = "markers",
     color = ~Precipitation, text = ~text_label, alpha = 0.5)
+
+ny_noaa %>%
+  mutate(text_label = str_c("ID: ", ID, '\nSnow: ', Snow)) %>%
+  plot_ly(
+    x = ~date, y = ~Snow, type = "scatter", mode = "markers",
+    color = ~Snow, text = ~text_label, alpha = 0.5)
+
+ny_noaa %>%
+  count(ID) %>%
+  mutate(ID = fct_reorder(ID, n)) %>%
+  plot_ly(x = ~ID, y = ~n, type = "bar")
 
 common_ID =
   ny_noaa %>%
   count(ID, sort = TRUE) %>%
   top_n(8) %>%
   select(ID)
-
+  
 inner_join(ny_noaa, common_ID) %>%
   mutate(ID = fct_reorder(ID, tmax)) %>%
   plot_ly(y = ~tmax, color = ~ID, type = "box")
