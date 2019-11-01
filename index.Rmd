@@ -8,7 +8,7 @@ output:
 ---
 
 # Navigating
-Read up on my professional and research experience in my [resume](resume.html). Learn more [about](about.html) me before I became a public health student in NYC.
+Read up on my professional and research experience in my [resume](resume.html). Learn more [about](about.html) me before I became a public health student in NYC. Here's a [page](Data.html) where you can see how I use plots to visualize data.
 
 # Professional Networking
 
