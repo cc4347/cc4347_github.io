@@ -44,7 +44,7 @@ ny_noaa =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Chart A: New York Weather Stations by Number of Data Points Collected
 
 ```{r}
 ny_noaa %>%
@@ -56,7 +56,7 @@ ny_noaa %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Chart B: Distribution of Maximum Temperatures Among Weather Stations with Most Observations
 
 ```{r}
 common_ID =
@@ -70,7 +70,7 @@ inner_join(ny_noaa, common_ID) %>%
   plot_ly(y = ~tmax, color = ~ID, type = "box")
 ```
 
-### Chart C
+### Chart C: Distribution of Minimum Temperatures Among Weather Stations with Most Observations
 
 ```{r}
 common_ID =
@@ -86,7 +86,7 @@ inner_join(ny_noaa, common_ID) %>%
 
 -----------------------------------------------------------------------
 
-### Chart D
+### Chart D: Recorded Precipitation Over Time Among Weather Stations with Most Observations
 
 ```{r}
 ny_noaa %>%
